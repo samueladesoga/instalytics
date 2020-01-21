@@ -51,8 +51,10 @@ exports.getTopLikedMedia = (media, topCount) => {
     return media.sort(function (node1, node2) {
         var x = node1.node.edge_media_preview_like.count;
         var y = node2.node.edge_media_preview_like.count;
+        console.log('x is ' + x)
+        console.log('y is ' + y)
         return ((x > y) ? -1 : ((x < y) ? 1 : 0));
-    }).slice(0, (topCount > media.length ? media.length : topCount))
+    }).slice(0, (topCount > media.length ? media.length : topCount)).map(media => JSON.stringify(media['node']['shortcode']));
 }
 
 exports.getTopCommentedMedia = (media, topCount) => {
@@ -60,6 +62,6 @@ exports.getTopCommentedMedia = (media, topCount) => {
         var x = node1.node.edge_media_to_comment.count;
         var y = node2.node.edge_media_to_comment.count;
         return ((x > y) ? -1 : ((x < y) ? 1 : 0));
-    }).slice(0, (topCount > media.length ? media.length : topCount));
+    }).slice(0, (topCount > media.length ? media.length : topCount)).map(media => JSON.stringify(media['node']['shortcode']));;
 }
 

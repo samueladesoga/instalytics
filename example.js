@@ -1,6 +1,6 @@
 const { getQuickStats } = require('./index');
 
-var desiredNumberOfTopPosts = 6;
-getQuickStats('instagram', desiredNumberOfTopPosts).then(stats => {
+var desiredNumberOfTopPosts = 10;
+getQuickStats('mistaradesoga', desiredNumberOfTopPosts).then(stats => {
     console.log(stats);
 });
